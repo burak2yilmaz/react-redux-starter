@@ -16,7 +16,8 @@ class Menu extends Component {
                                         item.title
                                     }
                                 </Link>
-                            </li>)
+                            </li>
+                        )
                     }
                 </ul>
             </header>
