@@ -19,11 +19,10 @@ const routes = [
         content: HomePage,
         props: {
             test: 1,
-            test2: true,
-            reducers: [
-                'R_Users'
-            ],
-            store: store
+            test2: true
+        },
+        childProps: {
+            test: 1
         }
     },
     {
@@ -35,9 +34,6 @@ const routes = [
                 'R_Users'
             ],
             store: store
-        },
-        childProps: {
-            test: 1
         }
     }
 ];

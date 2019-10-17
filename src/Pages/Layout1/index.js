@@ -11,11 +11,7 @@ class Layout1 extends Component {
         this.reducersInitialize = this.reducersInitialize.bind(this);
 
         this.reducerConnect();
-
-        this.state = {};
     }
-
-    state = {};
 
     reducerConnect(reducers = this.props.reducers) {
         if (this.props.store) {
@@ -32,7 +28,7 @@ class Layout1 extends Component {
 
         for (let i = 0; i < reducers.length; i++) {
             storageItems = {
-                ...storeItems,
+                ...storageItems,
                 ...storeItems[reducers[i]]
             }
         }
@@ -40,7 +36,7 @@ class Layout1 extends Component {
         if (isMounted)
             this.setState(storageItems);
         else
-            this.state = storeItems;
+            this.state = storageItems;
     }
 
     render() {
