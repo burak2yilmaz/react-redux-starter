@@ -7,11 +7,11 @@ import NotLoginUser from "./NotLoginUser";
 class LoginPage extends Component {
     render() {
         return (
-            <>
+            <div className={"loginPage"}>
                 {
                     this.props.login ? <Login/> : <NotLoginUser/>
                 }
-            </>
+            </div>
         );
     }
 }

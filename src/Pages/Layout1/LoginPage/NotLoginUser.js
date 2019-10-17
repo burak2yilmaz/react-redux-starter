@@ -16,11 +16,11 @@ class NotLoginUser extends Component {
 
     render() {
         return (
-            <div>
+            <>
                 Not Login User!
                 <br/><br/><br/>
                 <button onClick={this.loginUser}>Login</button>
-            </div>
+            </>
         );
     }
 }

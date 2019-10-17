@@ -41,7 +41,7 @@ class Layout1 extends Component {
 
     render() {
         return (
-            <div>
+            <div className={"layout1"}>
                 <Menu/>
                 {
                     React.cloneElement(this.props.children, {
