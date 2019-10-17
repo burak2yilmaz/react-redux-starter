@@ -7,12 +7,12 @@ import { Switch } from 'react-router-dom';
 import routes from './Pages/Routes';
 
 const App = () =>
-    <div className="App">
+    <>
         <Switch>
             {
                 routes
             }
         </Switch>
-    </div>;
+    </>;
 
 export default App;

@@ -1,4 +1,4 @@
-export default function reducerInjector(parts) {
+export default function ReducerInjector(parts) {
     let stateData = {};
 
     parts.map(item => {

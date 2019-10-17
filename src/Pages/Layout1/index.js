@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import Menu from "../../Components/Menu";
 
 //  REDUCER INJECTOR
-import reducerInjector from '../../System/ReducerInjector';
+import ReducerInjector from '../../System/ReducerInjector/index';
 
 class Layout1 extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class Layout1 extends Component {
             }
         ];
 
-        reducerInjector.bind(this)(parts);
+        ReducerInjector.bind(this)(parts);
     }
 
     render() {

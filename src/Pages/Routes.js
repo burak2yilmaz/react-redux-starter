@@ -1,5 +1,5 @@
 //  ROUTER PARSER
-import RouterParser from '../System/RouterParser';
+import Router from '../System/Router/index';
 
 //  LAYOUT
 import Layout1 from './Layout1';
@@ -11,7 +11,7 @@ import store from '../Redux/Store';
 import HomePage from './Layout1/HomePage';
 import LoginPage from './Layout1/LoginPage';
 
-const routes = [
+export default Router.init([
     {
         path: '/',
         layout: {
@@ -46,6 +46,4 @@ const routes = [
             ]
         }
     }
-];
-
-export default RouterParser(routes);
+]);
