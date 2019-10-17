@@ -1,6 +1,5 @@
-import React from 'react';
-
-import {Route} from 'react-router-dom';
+//  ROUTER PARSER
+import RouterParser from '../System/RouterParser';
 
 //  LAYOUT
 import Layout1 from './Layout1';
@@ -49,21 +48,4 @@ const routes = [
     }
 ];
 
-function parser(routes = []) {
-    return routes.map((route, key) =>
-        <Route key={key} exact path={route.path} render={() =>
-            <route.layout.type
-                {...route.layout.props}
-                layout={route.layout}
-                child={route.child}
-            >
-                <route.child.type
-                    {...route.child.props}
-                />
-            </route.layout.type>
-        }
-        />
-    );
-}
-
-export default parser(routes);
+export default RouterParser(routes);
