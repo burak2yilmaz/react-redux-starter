@@ -7,18 +7,13 @@ class Layout1 extends Component {
     constructor(props) {
         super(props);
 
-        this.reducerConnect = this.reducerConnect.bind(this);
         this.reducersInitialize = this.reducersInitialize.bind(this);
 
-        this.reducerConnect();
-    }
-
-    reducerConnect(reducers = this.props.reducers) {
         if (this.props.store) {
             this.setReducers = this.props.store.subscribe(() => {
-                this.reducersInitialize(reducers, true);
+                this.reducersInitialize(this.props.reducers, true);
             });
-            this.reducersInitialize(reducers, false);
+            this.state = this.reducersInitialize(this.props.reducers, false);
         }
     }
 
@@ -36,7 +31,7 @@ class Layout1 extends Component {
         if (isMounted)
             this.setState(storageItems);
         else
-            this.state = storageItems;
+            return storageItems;
     }
 
     render() {
@@ -56,6 +51,7 @@ class Layout1 extends Component {
         if (this.setReducers)
             this.setReducers();
     }
+
 }
 
 export default Layout1;

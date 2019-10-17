@@ -19,7 +19,7 @@ class NotLoginUser extends Component {
             <>
                 Not Login User!
                 <br/><br/><br/>
-                <button onClick={this.loginUser}>Loginn</button>
+                <button onClick={this.loginUser}>Login</button>
             </>
         );
     }
