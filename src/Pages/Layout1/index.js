@@ -3,44 +3,38 @@ import React, {Component} from 'react';
 //  COMPONENTS
 import Menu from "../../Components/Menu";
 
+//  REDUCER INJECTOR
+import reducerInjector from '../../System/ReducerInjector';
+
 class Layout1 extends Component {
     constructor(props) {
         super(props);
 
-        this.reducersInitialize = this.reducersInitialize.bind(this);
-
-        if (this.props.store) {
-            this.setReducers = this.props.store.subscribe(() => {
-                this.reducersInitialize(this.props.reducers, true);
-            });
-            this.state = this.reducersInitialize(this.props.reducers, false);
-        }
-    }
-
-    reducersInitialize(reducers = [], isMounted = true) {
-        let storeItems = this.props.store.getState(),
-            storageItems = {};
-
-        for (let i = 0; i < reducers.length; i++) {
-            storageItems = {
-                ...storageItems,
-                ...storeItems[reducers[i]]
+        let parts = [
+            {
+                store: this.props.layout.store,
+                reducers: this.props.layout.reducers,
+                part: 'layoutStore',
+                subscriber: 'setReducersChild'
+            },
+            {
+                store: this.props.child.store,
+                reducers: this.props.child.reducers,
+                part: 'childStore',
+                subscriber: 'setReducersLayout'
             }
-        }
+        ];
 
-        if (isMounted)
-            this.setState(storageItems);
-        else
-            return storageItems;
+        reducerInjector.bind(this)(parts);
     }
 
     render() {
         return (
             <div className={"layout1"}>
-                <Menu/>
+                <Menu menu={this.state.layoutStore.R_Menu}/>
                 {
                     React.cloneElement(this.props.children, {
-                        ...this.state
+                        ...this.state.childStore
                     })
                 }
             </div>
@@ -48,8 +42,11 @@ class Layout1 extends Component {
     }
 
     componentWillUnmount() {
-        if (this.setReducers)
-            this.setReducers();
+        if (this.setReducersLayout)
+            this.setReducersLayout();
+
+        if (this.setReducersChild)
+            this.setReducersChild();
     }
 
 }

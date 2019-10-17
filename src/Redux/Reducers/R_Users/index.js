@@ -7,7 +7,7 @@ export const methods = {
     set_users: 'SET_USERS'
 };
 
-export function R_Users(state = initialState, {type, payload}) {
+export default function R_Users(state = initialState, {type, payload}) {
     switch (type) {
         case methods.login :
             return {

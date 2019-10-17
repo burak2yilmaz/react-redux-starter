@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 //  ROUTER
 import { Link } from "react-router-dom";
 
-const Menu = () => <header>
-    <ul>
-        <li>
-            <Link to={'/'}>
-                Anasayfa
-            </Link>
-        </li>
-        <li>
-            <Link to={'/users'}>
-                Kullanıcılar
-            </Link>
-        </li>
-    </ul>
-</header>;
+class Menu extends Component {
+    render() {
+        return (
+            <header>
+                <ul>
+                    {
+                        this.props.menu.items.map((item, key) =>
+                            <li key={key}>
+                                <Link to={item.link}>
+                                    {
+                                        item.title
+                                    }
+                                </Link>
+                            </li>)
+                    }
+                </ul>
+            </header>
+        );
+    }
+}
 
 export default Menu;

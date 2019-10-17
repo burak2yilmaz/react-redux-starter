@@ -9,7 +9,7 @@ class LoginPage extends Component {
         return (
             <div className={"loginPage"}>
                 {
-                    this.props.login ? <Login/> : <NotLoginUser/>
+                    this.props.R_Users.login ? <Login/> : <NotLoginUser/>
                 }
             </div>
         );

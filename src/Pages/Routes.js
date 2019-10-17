@@ -15,34 +15,54 @@ import LoginPage from './Layout1/LoginPage';
 const routes = [
     {
         path: '/',
-        layout: Layout1,
-        content: HomePage,
-        props: {
-            test: 1,
-            test2: true
+        layout: {
+            type: Layout1,
+            store: store,
+            reducers: [
+                'R_Menu'
+            ]
         },
-        childProps: {
-            test: 1
+        child: {
+            type: HomePage
         }
     },
     {
         path: '/users',
-        layout: Layout1,
-        content: LoginPage,
-        props: {
+        layout: {
+            type: Layout1,
+            store: store,
+            reducers: [
+                'R_Users',
+                'R_Menu'
+            ],
+            props: {
+                test: 1
+            }
+        },
+        child: {
+            type: LoginPage,
+            store: store,
             reducers: [
                 'R_Users'
-            ],
-            store: store
+            ]
         }
     }
 ];
 
 function parser(routes = []) {
     return routes.map((route, key) =>
-        <Route key={key} exact path={route.path} render={() => <route.layout {...route.props}>
-            <route.content {...route.childProps}/>
-        </route.layout>}/>
+        <Route key={key} exact path={route.path} render={() =>
+            <route.layout.type
+                {...route.layout.props}
+                layout={route.layout}
+                child={route.child}
+            >
+                <route.child.type
+                    {...route.child.props}
+                />
+            </route.layout.type>
+        }
+        />
     );
 }
 

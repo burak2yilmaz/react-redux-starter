@@ -9,7 +9,7 @@ class NotLoginUser extends Component {
         this.loginUser = this.loginUser.bind(this);
     }
 
-    loginUser = () => {
+    loginUser() {
         A_Users.loginUser();
     };
 
