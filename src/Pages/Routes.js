@@ -1,5 +1,5 @@
 //  ROUTER PARSER
-import Router from '../System/Router/index';
+import { Router } from '../System';
 
 //  LAYOUT
 import Layout1 from './Layout1';

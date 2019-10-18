@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
+//  REDUCER INJECTOR
+import { ReducerInjector } from '../../System';
+
 //  COMPONENTS
 import Menu from "../../Components/Menu";
-
-//  REDUCER INJECTOR
-import ReducerInjector from '../../System/ReducerInjector/index';
 
 class Layout1 extends Component {
     constructor(props) {
