@@ -15,11 +15,7 @@ export default Router.init([
     {
         path: '/',
         layout: {
-            type: Layout1,
-            store: store,
-            reducers: [
-                'R_Menu'
-            ]
+            type: Layout1
         },
         child: {
             type: HomePage
@@ -30,20 +26,15 @@ export default Router.init([
         layout: {
             type: Layout1,
             store: store,
-            reducers: [
-                'R_Users',
-                'R_Menu'
-            ],
             props: {
-                test: 1
+                foo: 'bar'
             }
         },
         child: {
             type: LoginPage,
-            store: store,
-            reducers: [
-                'R_Users'
-            ]
+            props: {
+                foo: 'bar'
+            }
         }
     }
 ]);

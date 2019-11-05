@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 
-//  ACTIONS
-import { A_Users } from '../../../Redux/Actions/Actions';
+//  REDUX
+import {connect} from 'react-redux';
+
+//  REDUCER
+import {methods} from '../../../Redux/Reducers/R_Users';
 
 class NotLoginUser extends Component {
     constructor(props) {
@@ -10,7 +13,9 @@ class NotLoginUser extends Component {
     }
 
     loginUser() {
-        A_Users.loginUser();
+        this.props.dispatch({
+            type: methods.login
+        });
     };
 
 
@@ -19,10 +24,10 @@ class NotLoginUser extends Component {
             <>
                 Not Login User!
                 <br/><br/><br/>
-                <button onClick={this.loginUser}>Login</button>
+                <button onClick={ this.loginUser }>Login</button>
             </>
         );
     }
 }
 
-export default NotLoginUser;
+export default connect()(NotLoginUser);
