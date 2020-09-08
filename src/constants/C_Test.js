@@ -1,0 +1,4 @@
+export const C_Test = {
+    INCREMENT: "INCREMENT_COUNT",
+    DECREMENT: "DECREMENT_COUNT"
+};

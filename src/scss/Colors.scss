@@ -1,0 +1,19 @@
+$colors: (
+  bg_1: #FFF
+);
+
+$colors-dark: (
+  bg_1: #FFF
+);
+
+:root {
+  @each $name, $color in $colors {
+    --color-#{$name}: #{$color};
+  }
+}
+
+body.dark {
+  @each $name, $color in $colors-dark {
+    --color-#{$name}: #{$color};
+  }
+}

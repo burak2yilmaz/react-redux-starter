@@ -1,0 +1,51 @@
+@import '../../scss/Mixins.scss';
+
+div.test {
+  text-align: center;
+
+  span.count {
+    display: block;
+    margin-bottom: 30px;
+    font-size: 70px;
+    padding: 15px;
+    border: 1px solid #AAA;
+
+    &.positive {
+      color: green;
+
+      &.bg {
+        background-color: green;
+        color: #FFF;
+      }
+    }
+
+    &.negative {
+      color: red;
+
+      &.bg {
+        background-color: red;
+        color: #FFF;
+      }
+    }
+  }
+
+  button {
+    width: 200px;
+    padding: 15px 0;
+    margin-right: 20px;
+    border: none;
+    outline: none;
+    appearance: none;
+    background-color: #3399FF;
+    color: #FFF;
+    font-size: 22px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include hover-supported {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@import "./Functions.scss";
+@import "./Mixins.scss";
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: getColor(bg_1);
+  @include scrollYItem;
+}
+
+div, span, p, b, ul li, ol li, table tr td, table tr th {
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  @include hover-supported() {
+    color: #000;
+  }
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+span {
+  line-height: normal;
+}
+
+b {
+  font-weight: 500;
+  font-size: inherit;
+}
+
+.pd-0 {
+  padding: 0;
+}
+
+.mg-0 {
+  margin: 0;
+}
+
+label {
+  margin: 0;
+  width: 100%;
+}
+
+.hideItem {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}

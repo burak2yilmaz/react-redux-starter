@@ -1,0 +1,36 @@
+@import "Functions";
+
+@mixin scrollItemOptimized {
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin scrollYItem {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  @include scrollItemOptimized;
+}
+
+@mixin scrollXItem {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  @include scrollItemOptimized;
+}
+
+@mixin scrollItem {
+  overflow: scroll;
+  @include scrollItemOptimized;
+}
+@mixin overflowOpt {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+}
+
+//  HOVER CONTROL
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+//  GET COLOR
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+//  HOVER CONTROL
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
+    }
+  }
+}

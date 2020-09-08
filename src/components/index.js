@@ -1,0 +1,2 @@
+//  GLOBAL
+export * from "./Test";
