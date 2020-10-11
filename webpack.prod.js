@@ -5,11 +5,16 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
 const path = require("path");
 const CopyPlugin = require('copy-webpack-plugin');
+const variables = require('./src/helpers/variables');
 
 module.exports = {
     mode: 'production',
     entry: {
         app: './src/index.js'
+    },
+    output: {
+        filename: "[hash].js",
+        publicPath: variables.url.APP
     },
     resolve: {
         extensions: ['.js', '.jsx', '.css']
@@ -43,7 +48,8 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        outputPath: "public/fonts"
+                        outputPath: "public/fonts",
+                        publicPath: variables.url.APP + "/public/fonts"
                     }
                 }]
             },
@@ -55,19 +61,21 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        outputPath: "public/icons"
+                        outputPath: "public/icons",
+                        publicPath: variables.url.APP + "/public/icons"
                     }
                 }]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 include: [
-                    path.resolve(__dirname, "public/img")
+                    path.resolve(__dirname, "public/images")
                 ],
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        outputPath: "public/img"
+                        outputPath: "public/img",
+                        publicPath: variables.url.APP + "/public/img"
                     }
                 }]
             },
@@ -79,7 +87,8 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        outputPath: "public/sounds"
+                        outputPath: "public/sounds",
+                        publicPath: variables.url.APP + "/public/sounds"
                     }
                 }]
             }

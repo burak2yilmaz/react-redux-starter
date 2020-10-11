@@ -1,6 +1,7 @@
+import variables from './variables';
+
 export * from './history';
 export * from './store';
-export * from "./variables";
 export * from "./localStorage";
 export * from "./SessionStorage";
 export * from "./resizeDetector";
@@ -9,3 +10,7 @@ export * from "./DateSys";
 export * from "./Data";
 export * from "./Response";
 export * from "./Validations";
+
+export {
+    variables
+}

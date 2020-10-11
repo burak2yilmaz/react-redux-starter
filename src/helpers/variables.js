@@ -45,4 +45,4 @@ variables.masks = {
     phone_number: "^((0?)(([1-9])([0-9]{9})))$"
 };
 
-export { variables }
+module.exports = variables;
