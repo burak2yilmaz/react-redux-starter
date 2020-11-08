@@ -1,0 +1,40 @@
+@import "../../scss/Functions";
+
+div#praiseForm {
+  div.formBlock {
+    div.inputRow {
+      &.stars {
+        margin: 30px 0;
+        text-align: center;
+
+        div.items {
+          display: flex;
+          justify-content: center;
+
+          div.item {
+            margin: 0 10px;
+
+            @include hover-supported {
+              cursor: pointer;
+            }
+
+            i.icon {
+              font-size: 32px;
+              color: getColor(color_2);
+            }
+          }
+        }
+
+        @media (max-width: 768px) {
+          div.items div.item {
+            margin: 0 5px;
+
+            i.icon {
+              font-size: 26px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

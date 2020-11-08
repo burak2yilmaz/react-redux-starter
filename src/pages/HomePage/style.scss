@@ -1,9 +1,61 @@
 @import "../../scss/Functions.scss";
 
 div#homePage {
-  display: flex;
   width: 100%;
   min-height: 100vh;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    min-height: 90vh;
+  }
+
+  div.link {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    height: 26px;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      bottom: 30px;
+      height: 15px;
+    }
+
+    span {
+      color: getColor(color_2);
+      letter-spacing: 20px;
+      font-size: 22px;
+      transition: letter-spacing .4s;
+      display: block;
+      transform: translateY(100%);
+      animation: bottomSlide .4s 3s forwards;
+
+      @include hover-supported {
+        letter-spacing: 19px;
+      }
+
+      @media (max-width: 991px) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+        letter-spacing: 5px;
+      }
+    }
+
+    @keyframes bottomSlide {
+      0% {
+        transform: translateY(100%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
 }

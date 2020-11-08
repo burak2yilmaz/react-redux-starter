@@ -1,0 +1,74 @@
+@import "../../../scss/Functions";
+
+.g-form-input-with-information-box {
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  &.active {
+    .g-icon-text-input {
+      span.g-icon-text-input-icon {
+        color: getColor(color-1);
+
+        &:before {
+          background-color: #F9F9F9;
+        }
+      }
+    }
+  }
+
+  .g-icon-text-input {
+    span.g-icon-text-input-icon {
+      @include hover-supported {
+        cursor: pointer;
+
+        &:before {
+          background-color: #F9F9F9;
+        }
+      }
+
+      i.icon {
+        position: relative;
+        z-index: 3;
+      }
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        z-index: 2;
+      }
+    }
+  }
+
+  .g-form-input-information-box {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 15px);
+    width: 100%;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    z-index: 10;
+    padding: 15px;
+    box-shadow: 0 8px 25px rgba(#666, .1);
+
+    &:after {
+      position: absolute;
+      content: "";
+      width: 20px;
+      height: 15px;
+      top: -15px;
+      right: 17px;
+      border-style: solid;
+      border-width: 0 10px 15px 10px;
+      border-color: transparent transparent #FFF transparent;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}

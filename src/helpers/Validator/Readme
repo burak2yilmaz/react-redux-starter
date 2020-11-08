@@ -1,0 +1,126 @@
+Validator Class'ı, verileri validate etmeye yarar.
+İçerisinde ön tanımlı tiplere göre ayrıştırma sağlayabilir.
+Ön tanımlı değerler
+
+string, number, unixtime, object, array, oneOf, function, boolean, any, shape
+
+string
+    Sadece string değerleri iletilebilir.
+
+number
+    Sadece sayısal değerler iletilebilir. string olarak sayısal değerleri kabul eder.
+
+unixtime
+    Sadece unixtime değerleri destekler.
+
+object
+    Sadece object değerleri destekler
+
+array
+    Sadece array değerlerini destekler
+
+oneOf
+    Array içerisinde değerler gönderebilirsiniz. Gönderilen value, bu değerlerden birisi ise kabul eder. Gönderilebilecek değerler (string, number ve boolean'dır)
+
+function
+    Sadece function değerlerini destekler
+
+boolean
+    Sadece boolean değerlerini destekler
+
+any
+    undefined değeri dışında tüm değerleri kabul eder
+
+shape
+    İçerisine obje türünde yeni bir şema eklenebilir.
+
+minLength
+    String ve number değerleri için minimum uzunluk değerini belirler. Number değer almalıdır. Required olmayan değerlerde minLength varsa ve gönderilen değer minLength'in altında ise uyarı verir.
+
+maxLength
+    String ve number değerleri için maksimum uzunluk değerini belirler. Number değer almalıdır.
+
+min
+    Number ve array değerler için minimum değeri belirler. Array için içerisinde ki deger sayısını, number için ise sayısal olarak minimum degeri belirler.
+
+max
+    Number ve array değerler için maksimum değeri belirler. Array için içerisinde ki deger sayısını, number için ise sayısal olarak maximum degeri belirler.
+
+length
+    String ve number değerlerin uzunluk değerini belirler. Belirlenen değerin altını veya üstünü kabul etmez. Number değer almalıdır. Required olmayan değerlerde de çalışır.
+
+required
+    Verinin zorunluluğunu belirler. Boolean değer almalıdır.
+
+pattern
+    String ve number değerleri için pattern belirleme işlemini sağlar. String olarak regex değeri iletilmelidir.
+
+Örnek Kullanımlar
+const schema = {
+    key1: Validator.string.end,
+    key2: Validator.string.minLength(10).end,
+    key3: Validator.string.minLength(10).maxLength(20).end,
+    key4: Validator.string.length(10).end,
+    key5: Validator.string.required.end,
+    key6: Validator.string.pattern('^([a-z]*)$').end
+    key6: Validator.number.end
+    key7: Validator.unixtime.end,
+    key8: Validator.object.end,
+    key9: Validator.array.end,
+    key10: Validator.oneOf(['foo', 'bar']).end,
+    key11: Validator.function.end
+    key12: Validator.bool.end,
+    key13: Validator.any.end,
+    key14: Validator.shape({
+        subkey1: Validator.string.required.end,
+        subkey2: Validator.bool.required.end,
+        subkey3: Validator.shape({
+            subkey1: Validator.string.end
+        }).required.end
+    }).required.end
+}
+
+Validator.validate(data, schema, options)
+
+Options
+
+    replaceKeys
+        replaceKeys objesi ile response mesajlarının key değerlerini düzenleyebilirsiniz.
+
+        Örnek Kullanım
+
+        const schema = {
+            key1: Validator.string.end
+        };
+
+        const data = {
+            key1: "foo" //  USERNAME
+        };
+
+        Validator.validate(data, schema, {
+            replaceKeys: {
+                "key1": "Username"
+            }
+        });
+
+    replaceMessages
+        Validatör'ün default mesajlarına müdahale etmeden, error koduna göre mesajları değiştirebilirsiniz.
+
+        Örnek Kullanım
+
+        const schema = {
+                    key1: Validator.string.end
+                };
+
+                const data = {
+                    key1: "foo" //  USERNAME
+                };
+
+                Validator.validate(data, schema, {
+                    replaceKeys: {
+                        "key1": "Username"
+                    },
+                    replaceMessages: {
+                        "011": "[[key]] isn't array!"
+                    }
+                }); //  RETURN ERROR 011

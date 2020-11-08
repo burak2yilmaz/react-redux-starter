@@ -1,0 +1,161 @@
+@import "../../../scss/Functions";
+@import "../../../scss/Mixins";
+
+.g-file-input {
+  border: 1px solid getColor(input-border-color-1);
+
+  &.disabled {
+    div.g-file-input-inner {
+      background-color: #EEE;
+
+      @include hover-supported {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  div.g-file-input-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 50px 50px;
+    position: relative;
+    background-color: #FFF;
+
+    div.g-file-input-inner-content {
+      text-align: center;
+    }
+
+    div.g-file-input-drag-catcher {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background-color: transparent;
+      border: 1px solid transparent;
+
+      &.active {
+        border-color: getColor(color-1);
+      }
+    }
+
+    @include hover-supported {
+      cursor: pointer;
+    }
+
+    i.icon.g-file-input-icon {
+      font-size: 70px;
+      color: getColor(color-1);
+    }
+
+    span.g-file-input-text {
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #666;
+    }
+
+    span.g-file-input-information {
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #AAA;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    span.g-file-input-error {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      background-color: getColor(color-1);
+      color: #FFF;
+      padding: 12px 15px;
+      font-size: 12px;
+      border: 1px solid #5badff;
+    }
+
+    div.g-file-input-correct-file-list {
+      margin-top: 10px;
+
+      ul li {
+        font-size: 12px;
+        color: #AAA;
+      }
+    }
+  }
+
+  div.g-file-input-file-list {
+    width: 100%;
+    border-top: 1px solid getColor(input-border-color-1);
+
+    div.g-file-input-file-list-inner {
+      max-height: 200px;
+      @include scrollYItem;
+    }
+
+    div.g-file-input-file-list-status {
+      border-bottom: 1px solid getColor(input-border-color-1);
+
+      span.file-limit {
+        display: inline-block;
+        text-align: right;
+        font-size: 14px;
+        padding: 12px;
+        background-color: getColor(color-1);
+        font-weight: 300;
+        min-width: 10%;
+        transition: width .4s;
+
+        &, span {
+          color: #FFF;
+        }
+
+        &.full {
+          background-color: #ffa500;
+        }
+
+        span {
+          font-size: inherit;
+          font-weight: bold;
+        }
+      }
+    }
+
+    ul li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 15px;
+      border-bottom: 1px solid getColor(input-border-color-1);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      @include hover-supported {
+        background-color: #FAFAFA;
+      }
+
+      span.itemName, i.icon {
+        color: #AAA;
+      }
+
+      span.itemName {
+        font-size: 12px;
+      }
+
+      i.icon {
+        @include hover-supported {
+          color: red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

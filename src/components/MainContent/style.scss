@@ -1,0 +1,221 @@
+@import "../../scss/Functions";
+
+div#mainContent {
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &.activeApp div.content div.forms div.mainContentInner {
+    opacity: 1;
+    display: block;
+    animation: none;
+  }
+
+  div.content {
+    width: 500px;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 80px;
+
+    @media (max-width: 768px) {
+      width: 90%;
+      padding: 30px 0;
+    }
+
+    img.logo {
+      width: 120px;
+      margin-bottom: 30px;
+      transform: translateY(170px);
+      opacity: 0;
+      animation: logoAnimate 2s .4s forwards;
+
+      @media (max-width: 768px) {
+        width: 80px;
+      }
+    }
+
+    div.forms {
+      width: 100%;
+
+      div.form {
+        width: 100%;
+        border: 1px solid getColor(color_2);
+        border-radius: 10px;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+
+        div.formBlock {
+          text-align: left;
+
+          div.inputRow {
+            margin-bottom: 10px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            span.head {
+              display: block;
+              width: 100%;
+              margin-bottom: 10px;
+              color: getColor(color_2);
+              font-size: 14px;
+
+              @media (max-width: 768px) {
+                font-size: 12px;
+              }
+            }
+
+            &.buttons {
+              margin-top: 30px;
+
+              div.button {
+                width: 100%;
+                background-color: getColor(color_2);
+                color: getColor(color_1);
+                padding: 20px 0;
+                text-align: center;
+                font-size: 14px;
+
+                @include hover-supported {
+                  cursor: pointer;
+                  background-color: getColor(color_2_lighten);
+                }
+
+                @media (max-width: 768px) {
+                  font-size: 12px;
+                  padding: 15px 0;
+                }
+              }
+            }
+
+            &.note {
+              margin-top: 20px;
+
+              span {
+                font-size: 12px;
+                text-align: center;
+                color: getColor(color_2);
+                display: block;
+                width: 100%;
+              }
+            }
+
+            div.notification {
+              padding: 12px 15px;
+              margin-top: 20px;
+              font-size: 12px;
+              background-color: getColor(color_2);
+
+              &.error {
+                background-color: #ff4040;
+              }
+            }
+          }
+        }
+
+        @media (max-width: 768px) {
+          padding: 20px;
+        }
+      }
+
+      div.text {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          color: getColor(color_2);
+          font-weight: 300;
+
+          @include hover-supported {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+
+          @media (max-width: 768px) {
+            font-size: 12px;
+          }
+        }
+      }
+
+      div.mainContentInner {
+        opacity: 0;
+        animation: opacityAnimate .6s 2.4s forwards;
+
+        div.form {
+          div.items {
+            div.item {
+              padding: 20px 15px;
+              text-align: left;
+              border: 1px solid getColor(color_2);
+              border-radius: 5px;
+              margin-bottom: 10px;
+              transition: background-color .2s;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              span {
+                color: getColor(color_2);
+                transition: color .2s;
+                font-weight: 700;
+              }
+
+              @include hover-supported {
+                cursor: pointer;
+                background-color: getColor(color_2);
+
+                span {
+                  color: getColor(color_1);
+                }
+              }
+
+              @media (max-width: 768px) {
+                padding: 8px 10px;
+
+                span {
+                  font-size: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @keyframes logoAnimate {
+      0% {
+        transform: translateY(170px);
+        opacity: 0;
+      }
+
+      60% {
+        opacity: 1;
+        transform: translateY(170px);
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes opacityAnimate {
+      0% {
+        opacity: 0;
+        display: none;
+      }
+
+      100% {
+        opacity: 1;
+        display: block;
+      }
+    }
+  }
+}

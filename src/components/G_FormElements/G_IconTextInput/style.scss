@@ -1,0 +1,43 @@
+@import "../../../scss/Functions";
+
+.g-icon-text-input {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border: 1px solid getColor(input-border-color-1);
+
+  &.focus, &.focus span.g-icon-text-input-icon {
+    border-color: getColor(color-1);
+  }
+
+  &.error, &.error span.g-icon-text-input-icon {
+    border-color: red;
+  }
+
+  &.disabled {
+    &, span.g-icon-text-input-icon {
+      border-color: getColor(border_color_1);
+    }
+
+    input.g-text-box {
+      border-color: transparent;
+    }
+  }
+
+  .g-text-box {
+    &, &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+
+  span.g-icon-text-input-icon {
+    padding: 0 15px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid getColor(input-border-color-1);
+    background-color: getColor(bg_1);
+  }
+}

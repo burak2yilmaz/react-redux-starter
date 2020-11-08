@@ -80,6 +80,19 @@ module.exports = {
                 }]
             },
             {
+                test: /\.(pdf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                include: [
+                    path.resolve(__dirname, "public/docs")
+                ],
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        outputPath: "public/docs",
+                        publicPath: variables.url.APP + "/public/docs"
+                    }
+                }]
+            },
+            {
                 test: /\.(mp3)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 include: [
                     path.resolve(__dirname, "public/sounds")

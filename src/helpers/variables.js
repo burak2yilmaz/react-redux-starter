@@ -1,45 +1,32 @@
 const DEV = {
     url: {
-        API_URL: '',
-        PUBLIC_URL: 'http://localhost:4002'
+        API_URL: 'http://localhost:3000/v1',
+        PUBLIC_URL: 'http://localhost:4002',
+        APP: '/qr-menu'
     },
     meta: {
-        title: 'React-Redux Boilerplate',
-        description: 'React-Redux Boilerplate'
+        title: 'Jumbo Künefe QR Menü | Development',
+        description: 'Jumbo Künefe\'nin müşterilerine özgü sunmuş olduğu QR Menü\'yü inceleyebilirsiniz.'
     }
 };
 
 const PRODUCTION = {
     url: {
-        API_URL: '',
-        PUBLIC_URL: 'http://localhost:4002'
+        API_URL: 'https://jumbokunefe.com/v1',
+        PUBLIC_URL: 'https://inchels.com',
+        APP: '/qr-menu'
     },
     meta: {
-        title: 'React-Redux Boilerplate',
-        description: 'React-Redux Boilerplate'
+        title: 'Jumbo Künefe QR Menü',
+        description: 'Jumbo Künefe\'nin müşterilerine özgü sunmuş olduğu QR Menü\'yü inceleyebilirsiniz.'
     }
 };
 
-const variables = process.env.NODE_ENV === 'development' ? DEV : PRODUCTION;
+let variables = process.env.NODE_ENV === 'development' ? DEV : PRODUCTION;
 
 variables.app = {
     VERSION: "V1.0.0"
 };
-
-variables.types = {
-    CORRECT_IMAGE_TYPES: [
-        "image/jpg",
-        "image/jpeg"
-    ]
-};
-
-variables.limits = {
-    IMAGE_MAX_LIMIT: 2000000,
-    PROFILE_IMAGE_MAX_LIMIT: 800000
-};
-
-variables.url.APP = "/app";
-variables.url.PATH = "";
 
 variables.masks = {
     phone_number: "^((0?)(([1-9])([0-9]{9})))$"

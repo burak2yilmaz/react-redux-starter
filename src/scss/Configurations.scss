@@ -8,17 +8,23 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: getColor(bg_2);
+  user-select: none;
 }
 
 body {
-  background-color: getColor(bg_1);
+  background-color: getColor(bg_2);
   @include scrollYItem;
 }
 
-div, span, p, b, ul li, ol li, table tr td, table tr th {
-  font-family: "Poppins", sans-serif;
+div, span, p, b, ul li, ol li, table tr td, table tr th, textarea, input {
+  font-family: "Montserrat", sans-serif;
   font-weight: normal;
   font-size: 16px;
+}
+
+div, span, p, b, ul li, ol li, table tr td, table tr th, textarea, input, i {
+  color: getColor(color_white);
 }
 
 ::-webkit-scrollbar {
@@ -62,11 +68,16 @@ b {
 
 label {
   margin: 0;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .hideItem {
   display: none;
   visibility: hidden;
   opacity: 0;
+}
+
+p {
+  margin: 0;
 }

@@ -1,9 +1,19 @@
 $colors: (
-  bg_1: #FFF
+        bg_1: #FFF,
+        bg_2: #131313,
+        color_1: #000,
+        color_2: #9E8536,
+        color_2_lighten: #c4b586,
+        color_white: #FFF
 );
 
 $colors-dark: (
-  bg_1: #FFF
+        bg_1: #FFF,
+        bg_2: #131313,
+        color_1: #000,
+        color_2: #9E8536,
+        color_2_lighten: #c4b586,
+        color_white: #FFF
 );
 
 :root {

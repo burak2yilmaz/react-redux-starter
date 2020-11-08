@@ -1,0 +1,31 @@
+@import "../../../scss/Functions";
+@import "../../../scss/Mixins";
+
+.g-text-box {
+  border: 1px solid getColor(color_2);
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 14px;
+  background-color: getColor(bg_2);
+
+  &:focus {
+    outline: 1px solid getColor(color-1);
+  }
+
+  &.error {
+    border-color: getColor(color-red);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:disabled {
+    background-color: getColor(bg_2);
+    border: 1px solid getColor(border_color_1);
+
+    @include hover-supported {
+      cursor: not-allowed;
+    }
+  }
+}

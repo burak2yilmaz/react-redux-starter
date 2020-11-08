@@ -1,0 +1,98 @@
+@import "../../../scss/Functions";
+@import "../../../scss/Mixins";
+
+div.g-select-box {
+  width: 100%;
+  position: relative;
+  user-select: none;
+  min-width: 200px;
+
+  &.disabled div.g-select-box-placeholder {
+    background-color: #EEE;
+
+    @include hover-supported {
+      cursor: not-allowed;
+    }
+  }
+
+  &.active div.g-select-box-placeholder {
+    border-color: getColor(color_2);
+  }
+
+  &.error div.g-select-box-placeholder {
+    border-color: getColor(color-red);
+  }
+
+  div.g-select-box-placeholder {
+    padding: 12px 15px;
+    border: 1px solid getColor(color_2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: getColor(bg_2);
+    overflow: hidden;
+    border-radius: 0;
+
+    span {
+      font-size: 14px;
+      max-width: calc(100% - 30px);
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+
+      &.icon {
+        font-size: 12px;
+      }
+    }
+
+    @include hover-supported {
+      cursor: pointer;
+    }
+  }
+
+  div.g-select-box-list {
+    border: 1px solid getColor(color_2);
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: 100%;
+    z-index: 4;
+    background-color: getColor(bg_2);
+
+    div.g-select-box-search-box {
+      padding: 12px 10px;
+      border-bottom: 1px solid getColor(input-border-color-1);
+    }
+
+    div.g-select-box-list-inner {
+      max-height: 200px;
+      @include scrollItemOptimized;
+      @include scrollYItem;
+
+      div.g-select-box-list-item {
+        padding: 6px 15px;
+        font-size: 14px;
+        background-color: getColor(bg_2);
+
+        @include hover-supported {
+          cursor: pointer;
+          background-color: getColor(color_2);
+          color: getColor(color-_1);
+        }
+
+        &.select {
+          background-color: getColor(color_2);
+
+          @include hover-supported {
+            color: #FFF;
+          }
+        }
+
+        &.disabled {
+          opacity: .7;
+        }
+      }
+    }
+  }
+}

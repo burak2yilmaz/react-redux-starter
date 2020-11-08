@@ -16,6 +16,7 @@ ES => EXTRA SMALL -> 576PX <
   display: -webkit-box;
   display: -ms-flexbox;
   flex-wrap: wrap;
+  margin: 0 -15px;
 
   &.center {
     justify-content: center;
@@ -59,6 +60,24 @@ ES => EXTRA SMALL -> 576PX <
 [class*="block-"], .container {
   padding: 0 15px;
   display: block;
+}
+
+[class*="block-m-"] {
+  @media (max-width: 768px) {
+    @include slice(12);
+  }
+}
+
+[class*="block-l-"] {
+  @media (max-width: 991px) {
+    @include slice(12);
+  }
+}
+
+[class*="block-el-"] {
+  @media (max-width: 1199px) {
+    @include slice(12);
+  }
 }
 
 .block-12,
@@ -115,161 +134,53 @@ ES => EXTRA SMALL -> 576PX <
   @include slice(1);
 }
 
-//  EXTRA LARGE -> 1199PX +
+//  EXTRA SMALL -> 576PX <
 
-[class*="block-el-"] {
-  @media (max-width: 1199px) {
-    @include slice(12);
-  }
+.block-es-11 {
+  @extend .block-11;
 }
 
-.block-el-11 {
-  @media (min-width: 1199px) {
-    @include slice(11);
-  }
+.block-es-10 {
+  @extend .block-10;
 }
 
-.block-el-10 {
-  @media (min-width: 1199px) {
-    @include slice(10);
-  }
+.block-es-9 {
+  @extend .block-9;
 }
 
-.block-el-9 {
-  @media (min-width: 1199px) {
-    @include slice(9);
-  }
+.block-es-8 {
+  @extend .block-8;
 }
 
-.block-el-8 {
-  @media (min-width: 1199px) {
-    @include slice(8);
-  }
+.block-es-7 {
+  @extend .block-7;
 }
 
-.block-el-7 {
-  @media (min-width: 1199px) {
-    @include slice(7);
-  }
+.block-es-6 {
+  @extend .block-6;
 }
 
-.block-el-6 {
-  @media (min-width: 1199px) {
-    @include slice(6);
-  }
+.block-es-5 {
+  @extend .block-5;
 }
 
-.block-el-5 {
-  @media (min-width: 1199px) {
-    @include slice(5);
-  }
+.block-es-4 {
+  @extend .block-4;
 }
 
-.block-el-4 {
-  @media (min-width: 1199px) {
-    @include slice(4);
-  }
+.block-es-3 {
+  @extend .block-3;
 }
 
-.block-el-3 {
-  @media (min-width: 1199px) {
-    @include slice(3);
-  }
+.block-es-2 {
+  @extend .block-2;
 }
 
-.block-el-2 {
-  @media (min-width: 1199px) {
-    @include slice(2);
-  }
-}
-
-.block-el-1 {
-  @media (min-width: 1199px) {
-    @include slice(1);
-  }
-}
-
-//  LARGE -> 991PX +
-
-[class*="block-l-"] {
-  @media (max-width: 991px) {
-    @include slice(12);
-  }
-}
-
-.block-l-11 {
-  @media (min-width: 991px) {
-    @include slice(11);
-  }
-}
-
-.block-l-10 {
-  @media (min-width: 991px) {
-    @include slice(10);
-  }
-}
-
-.block-l-9 {
-  @media (min-width: 991px) {
-    @include slice(9);
-  }
-}
-
-.block-l-8 {
-  @media (min-width: 991px) {
-    @include slice(8);
-  }
-}
-
-.block-l-7 {
-  @media (min-width: 991px) {
-    @include slice(7);
-  }
-}
-
-.block-l-6 {
-  @media (min-width: 991px) {
-    @include slice(6);
-  }
-}
-
-.block-l-5 {
-  @media (min-width: 991px) {
-    @include slice(5);
-  }
-}
-
-.block-l-4 {
-  @media (min-width: 991px) {
-    @include slice(4);
-  }
-}
-
-.block-l-3 {
-  @media (min-width: 991px) {
-    @include slice(3);
-  }
-}
-
-.block-l-2 {
-  @media (min-width: 991px) {
-    @include slice(2);
-  }
-}
-
-.block-l-1 {
-  @media (min-width: 991px) {
-    @include slice(1);
-  }
+.block-es-1 {
+  @extend .block-1;
 }
 
 //  MEDIUM -> 768PX +
-
-[class*="block-m-"] {
-  @media (max-width: 768px) {
-    @include slice(12);
-  }
-}
 
 .block-m-11 {
   @media (min-width: 768px) {
@@ -337,122 +248,138 @@ ES => EXTRA SMALL -> 576PX <
   }
 }
 
-//  SMALL -> 576PX +
+//  LARGE -> 991PX +
 
-[class*="block-s-"] {
-  @media (max-width: 576px) {
-    @include slice(12);
-  }
-}
-
-.block-s-11 {
-  @media (min-width: 576px) {
+.block-l-11 {
+  @media (min-width: 991px) {
     @include slice(11);
   }
 }
 
-.block-s-10 {
-  @media (min-width: 576px) {
+.block-l-10 {
+  @media (min-width: 991px) {
     @include slice(10);
   }
 }
 
-.block-s-9 {
-  @media (min-width: 576px) {
+.block-l-9 {
+  @media (min-width: 991px) {
     @include slice(9);
   }
 }
 
-.block-s-8 {
-  @media (min-width: 576px) {
+.block-l-8 {
+  @media (min-width: 991px) {
     @include slice(8);
   }
 }
 
-.block-s-7 {
-  @media (min-width: 576px) {
+.block-l-7 {
+  @media (min-width: 991px) {
     @include slice(7);
   }
 }
 
-.block-s-6 {
-  @media (min-width: 576px) {
+.block-l-6 {
+  @media (min-width: 991px) {
     @include slice(6);
   }
 }
 
-.block-s-5 {
-  @media (min-width: 576px) {
+.block-l-5 {
+  @media (min-width: 991px) {
     @include slice(5);
   }
 }
 
-.block-s-4 {
-  @media (min-width: 576px) {
+.block-l-4 {
+  @media (min-width: 991px) {
     @include slice(4);
   }
 }
 
-.block-s-3 {
-  @media (min-width: 576px) {
+.block-l-3 {
+  @media (min-width: 991px) {
     @include slice(3);
   }
 }
 
-.block-s-2 {
-  @media (min-width: 576px) {
+.block-l-2 {
+  @media (min-width: 991px) {
     @include slice(2);
   }
 }
 
-.block-s-1 {
-  @media (min-width: 576px) {
+.block-l-1 {
+  @media (min-width: 991px) {
     @include slice(1);
   }
 }
 
-//  EXTRA SMALL -> 576PX <
+//  EXTRA LARGE -> 1199PX +
 
-.block-es-11 {
-  @extend .block-11;
+.block-el-11 {
+  @media (min-width: 1199px) {
+    @include slice(11);
+  }
 }
 
-.block-es-10 {
-  @extend .block-10;
+.block-el-10 {
+  @media (min-width: 1199px) {
+    @include slice(10);
+  }
 }
 
-.block-es-9 {
-  @extend .block-9;
+.block-el-9 {
+  @media (min-width: 1199px) {
+    @include slice(9);
+  }
 }
 
-.block-es-8 {
-  @extend .block-8;
+.block-el-8 {
+  @media (min-width: 1199px) {
+    @include slice(8);
+  }
 }
 
-.block-es-7 {
-  @extend .block-7;
+.block-el-7 {
+  @media (min-width: 1199px) {
+    @include slice(7);
+  }
 }
 
-.block-es-6 {
-  @extend .block-6;
+.block-el-6 {
+  @media (min-width: 1199px) {
+    @include slice(6);
+  }
 }
 
-.block-es-5 {
-  @extend .block-5;
+.block-el-5 {
+  @media (min-width: 1199px) {
+    @include slice(5);
+  }
 }
 
-.block-es-4 {
-  @extend .block-4;
+.block-el-4 {
+  @media (min-width: 1199px) {
+    @include slice(4);
+  }
 }
 
-.block-es-3 {
-  @extend .block-3;
+.block-el-3 {
+  @media (min-width: 1199px) {
+    @include slice(3);
+  }
 }
 
-.block-es-2 {
-  @extend .block-2;
+.block-el-2 {
+  @media (min-width: 1199px) {
+    @include slice(2);
+  }
 }
 
-.block-es-1 {
-  @extend .block-1;
+.block-el-1 {
+  @media (min-width: 1199px) {
+    @include slice(1);
+  }
 }

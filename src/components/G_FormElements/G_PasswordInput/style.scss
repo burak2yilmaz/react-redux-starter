@@ -1,0 +1,12 @@
+@import "../../../scss/Functions";
+
+.g-password-input {
+  width: 100%;
+  display: flex;
+
+  span.g-icon-text-input-icon {
+    @include hover-supported {
+      cursor: pointer;
+    }
+  }
+}

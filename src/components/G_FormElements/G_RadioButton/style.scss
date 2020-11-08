@@ -1,0 +1,105 @@
+@import "../../../scss/Functions";
+
+div.g-radio-button {
+  align-items: center;
+  display: flex;
+
+  &.checked {
+    span.g-radio-button-square:before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &.disabled {
+    span.g-radio-button-square {
+      background-color: #EEE;
+
+      @include hover-supported {
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  input[type="radio"]:checked ~ div.g-radio-button-inner:after {
+    background-color: getColor(color-1);
+    animation: radioButtonAfterAnimation .4s linear;
+  }
+
+  @keyframes radioButtonAfterAnimation {
+    0% {
+      transform: translate(-50%, -50%) scale(.8);
+      opacity: 0;
+    }
+    45% {
+      transform: translate(-50%, -50%) scale(1.8);
+      opacity: .1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+
+  div.g-radio-button-inner {
+    position: relative;
+
+    @include hover-supported {
+      cursor: pointer;
+
+      &:before {
+        background-color: #F9F9F9;
+      }
+    }
+
+    &:before, &:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      left: 50%;
+      top: 50%;
+      display: block;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    &:before {
+      width: 200%;
+      height: 200%;
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+
+  span.g-radio-button-square {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 1px solid #CCC;
+    position: relative;
+    display: block;
+    background-color: #FFF;
+    z-index: 3;
+
+    @include hover-supported {
+      cursor: pointer;
+    }
+
+    &:before {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      content: "";
+      width: 60%;
+      height: 60%;
+      background-color: getColor(color-1);
+      border-radius: 100%;
+      transition: transform .2s;
+    }
+  }
+}

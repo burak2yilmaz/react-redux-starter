@@ -1,0 +1,100 @@
+@import "../../../scss/Functions";
+
+div.g-check-box {
+  position: relative;
+  display: inline-block;
+
+  &.checked {
+    span.g-check-box-square {
+      &:before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+
+  &.disabled {
+    @include hover-supported {
+      cursor: not-allowed;
+    }
+
+    span.g-check-box-square {
+      background-color: getColor(bg_2);
+    }
+  }
+
+  input[type="checkbox"]:checked ~ div.g-check-box-inner:after {
+    background-color: getColor(color-1);
+    animation: checkBoxAfterAnimation .4s linear;
+  }
+
+  @keyframes checkBoxAfterAnimation {
+    0% {
+      transform: translate(-50%, -50%) scale(.8);
+      opacity: 0;
+    }
+    45% {
+      transform: translate(-50%, -50%) scale(1.8);
+      opacity: .2;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+
+  div.g-check-box-inner {
+    position: relative;
+
+    @include hover-supported {
+      cursor: pointer;
+
+      &:before {
+        background-color: getColor(bg_2);
+      }
+    }
+
+    &:before, &:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      left: 50%;
+      top: 50%;
+      display: block;
+      transform: translate(-50%, -50%);
+    }
+
+    &:before {
+      width: 200%;
+      height: 200%;
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+  }
+
+  span.g-check-box-square {
+    width: 20px;
+    height: 20px;
+    border: 1px solid getColor(input-border-color-1);
+    position: relative;
+    display: block;
+    background-color: getColor(bg_1);
+    z-index: 2;
+
+    &:before {
+      position: absolute;
+      content: "";
+      width: 60%;
+      height: 60%;
+      background-color: getColor(color-1);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform .2s;
+    }
+  }
+}
