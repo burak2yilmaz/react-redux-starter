@@ -12,8 +12,8 @@ const DEV = {
 
 const PRODUCTION = {
     url: {
-        API_URL: 'https://jumbokunefe.com/v1',
-        PUBLIC_URL: 'https://inchels.com',
+        API_URL: 'https://www.jumbokunefe.com/v1',
+        PUBLIC_URL: 'https://jumbokunefe.com',
         APP: '/qr-menu'
     },
     meta: {

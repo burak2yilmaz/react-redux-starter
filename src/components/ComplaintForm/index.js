@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
+import InputMask from 'react-input-mask';
 
 //  COMPONENTS
 import {
@@ -132,18 +133,20 @@ const ComplaintForm = (props) => {
                     <div className="inputRow">
                         <label>
                             <span className="head">Telefon Numarası *</span>
-                            <G_TextBox
-                                value={form.customer.phone}
-                                changeHandle={phone => {
-                                    setForm({
-                                        ...form,
-                                        customer: {
-                                            ...form.customer,
-                                            phone
-                                        }
-                                    })
-                                }}
-                                pattern={"^([0-9]*)$"}
+                            <InputMask
+                                mask={'0(999) 999 99 99'}
+                                alwaysShowMask={true}
+                                value={form.phone}
+                                onChange={phone => {
+                                   setForm({
+                                       ...form,
+                                       customer: {
+                                           ...form.customer,
+                                           phone
+                                       }
+                                   })
+                               }}
+                               className={"g-text-box"}
                             />
                         </label>
                     </div>

@@ -8,14 +8,6 @@ import {
     history
 } from "./";
 
-//  ACTIONS
-import {
-    A_G_Notification
-} from "../actions";
-
-//  ROUTES
-import Routes from "../Routes";
-
 export class API {
     constructor(login = true) {
         this.axios = Axios;
